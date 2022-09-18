@@ -1,0 +1,18 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+{% block content %}
+<div class="h2 text-center head" style="
+
+    margin-bottom: 10%;">
+    Регистрация
+</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<form class="form-horizontal" action="{% url 'auth:register' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ register_form.as_p }}
+    <br>
+    <input class="btn btn-primary" type="submit" value="Зарегистрироваться">
+    <hr>
+    <a href="{% url 'auth:login' %}">Войти</a>
+</form>
+{% endblock %}
